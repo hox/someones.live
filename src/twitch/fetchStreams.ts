@@ -27,7 +27,7 @@ interface TwitchResponse {
 }
 
 export async function fetchStreams() {
-  const json: any = await fetch(
+  const json: TwitchResponse = await fetch(
     "https://api.twitch.tv/helix/streams?first=100",
     {
       headers: {
@@ -38,8 +38,6 @@ export async function fetchStreams() {
       },
     },
   ).then((req) => req.json());
-
-  console.log(json); // debug
 
   console.log(`Fetched ${json.data.length} streams`);
 
