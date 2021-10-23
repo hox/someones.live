@@ -31,7 +31,6 @@ export async function fetchStreams() {
     "https://api.twitch.tv/helix/streams?first=100",
     {
       headers: {
-        Accept: "application/vnd.twitchtv.v5+json",
         "Client-ID": TWITCH_CLIENT_ID,
         Authorization:
           "Bearer " + (await redisClient.get("someones-live:token")),
