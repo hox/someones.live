@@ -27,19 +27,21 @@ interface TwitchResponse {
 }
 
 export async function fetchStreams() {
-  const json: TwitchResponse = await fetch(
+  const json: any = await fetch(
     "https://api.twitch.tv/helix/streams?first=100",
     {
       headers: {
         Accept: "application/vnd.twitchtv.v5+json",
         "Client-ID": TWITCH_CLIENT_ID,
         Authorization:
-          "Bearer " + (await redisClient.get("someones-live:token")) || "",
+          "Bearer " + (await redisClient.get("someones-live:token")),
       },
     },
   ).then((req) => req.json());
 
+  console.log(json); // debug
+
   console.log(`Fetched ${json.data.length} streams`);
 
-  return json.data.map((twitchUser) => twitchUser.user_login);
+  return json.data.map((twitchUser: any) => twitchUser.user_login);
 }
