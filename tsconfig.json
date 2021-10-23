@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "typeRoots": ["./src/types", "node_modules/*"],
+    "downlevelIteration": true
+  },
+  "include": ["src/**/*.ts"]
+}
